@@ -1,0 +1,26 @@
+import { BallPlayer, Container } from './styles';
+import Draggable from 'react-draggable';
+import { useField } from '../../contexts/FieldContext';
+
+type PlayerProps = {
+  name: string;
+}
+
+function Player({ name }: PlayerProps) {
+  console.log(name)
+  const { teamColors } = useField();
+  return (
+    <Draggable
+      defaultPosition={{ x: 2, y: 3 }}
+      bounds={{ left: 2, right: 280, top: 10, bottom: 340 }}
+    >
+      <Container>
+        <BallPlayer primary_color={teamColors.primaryColor}
+          secondary_color={teamColors.secundaryColor} />
+        <span>{name}</span>
+      </Container>
+    </Draggable>
+  );
+}
+
+export default Player;
