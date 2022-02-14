@@ -1,11 +1,9 @@
 import React, { memo, useCallback } from 'react';
+import { FORMATIONS } from '../../constants/formations';
 import { POSITION_COLORS, Position, POSITIONS } from '../../constants/positions';
 import { useField } from '../../contexts/FieldContext';
 
 import * as Css from './styles';
-
-type Test = "a" | "b";
-
 
 const LineupInfo: React.FC = () => {
 
@@ -40,8 +38,13 @@ const LineupInfo: React.FC = () => {
         <>
             <Css.Container>
                 <Css.InfoHeader>
-                    <h2>Escalação 1</h2>
-                    <p>3-5-2</p>
+                    <input type="text" />
+                    <select>
+                        <option value="">----</option>
+                        {FORMATIONS.map(formation=>
+                        <option value={formation}>{formation}</option>    
+                        )}
+                    </select>
                 </Css.InfoHeader>
                 <Css.PlayersInfo>
 

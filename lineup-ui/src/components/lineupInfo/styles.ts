@@ -19,10 +19,27 @@ export const InfoHeader = styled.div`
         font-weight: 600;
         font-size: 35px;
     }
-    p{
+    select{
         align-self: flex-start;
         font-weight: 400;
         font-size: 20px;
+        background: ${p=>p.theme.primary};
+        color: white;
+        border: 0;
+        margin-left: 20px;
+        border-radius: 10px;
+        box-shadow: ${p=>p.theme.box_shadow};
+    }
+    input{
+        font-size: 35px;
+        padding: 0px 5px;
+        color: white;
+        margin-top: 10px;
+        border-radius:10px;
+        background: transparent;
+        border: 1px solid ${p=>p.theme.text_disabled};
+        box-shadow: ${p=>p.theme.box_shadow};
+        margin-bottom: 20px;
     }
 `;
 export const PlayersInfo = styled.div`
