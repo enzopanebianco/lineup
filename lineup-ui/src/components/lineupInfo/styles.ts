@@ -101,3 +101,19 @@ export const Manager = styled.div`
         
     }
 `;
+
+export const BtnAdd = styled.button`
+    background: ${p=>p.theme.primary};
+    width: 50%;
+    border: 0;
+    padding: 0px;
+    display: flex;
+    gap: 2px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: ${p=>p.theme.box_shadow};
+    /* border-radius: 10px; */
+    color: ${p=>p.theme.text};
+    margin-left: 5px;
+`;

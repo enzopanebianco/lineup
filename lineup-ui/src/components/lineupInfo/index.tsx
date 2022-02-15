@@ -2,7 +2,7 @@ import React, { memo, useCallback } from 'react';
 import { FORMATIONS } from '../../constants/formations';
 import { POSITION_COLORS, Position, POSITIONS } from '../../constants/positions';
 import { useField } from '../../contexts/FieldContext';
-
+import {MdAdd} from 'react-icons/md'
 import * as Css from './styles';
 
 const LineupInfo: React.FC = () => {
@@ -43,6 +43,13 @@ const LineupInfo: React.FC = () => {
         }
     }, [teamPlayers])
 
+    const addPlayer = useCallback(()=>{
+        setTeamPlayers([...teamPlayers,{
+            name:'',
+            position:'ATA',
+            id:Math.random()
+        }])
+    },[teamPlayers])
 
     return (
         <>
@@ -82,6 +89,13 @@ const LineupInfo: React.FC = () => {
 
                         </Css.PlayerItem>
                     )}
+                    {
+                        teamPlayers.length<11&&
+                        <Css.BtnAdd onClick={addPlayer}>
+                            Add
+                            <MdAdd size={20}/>
+                        </Css.BtnAdd>
+                    }
                 </Css.PlayersInfo>
                 <Css.Manager>
                     <strong>Treinador(a)</strong>

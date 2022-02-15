@@ -1,8 +1,10 @@
 import { BallPlayer, Container } from './styles';
 import Draggable from 'react-draggable';
 import { useField } from '../../contexts/FieldContext';
+import { memo } from 'react';
 
 type PlayerProps = {
+  key:number;
   name: string;
 }
 
@@ -23,4 +25,6 @@ function Player({ name }: PlayerProps) {
   );
 }
 
-export default Player;
+export default memo(Player,(prevProps, nextProps) => {
+  return Object.is(prevProps.key, nextProps.key)
+});
