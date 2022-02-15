@@ -15,7 +15,17 @@ const LineupInfo: React.FC = () => {
 
     const changePlayerPosition = (id: number, newPosition: any) => {
         const indexPlayer = teamPlayers.findIndex(player => player.id === id);
-        if (indexPlayer > -1) {
+        if (newPosition === 'GOL') {
+            const hasKeeper = teamPlayers.findIndex(player => player.position === 'GOL')
+          
+            if (hasKeeper === -1){                
+                teamPlayers[indexPlayer].position = newPosition
+                setTeamPlayers([
+                    ...teamPlayers,
+                ])
+            }
+        }
+        else{
             teamPlayers[indexPlayer].position = newPosition
             setTeamPlayers([
                 ...teamPlayers,
@@ -41,8 +51,8 @@ const LineupInfo: React.FC = () => {
                     <input type="text" />
                     <select>
                         <option value="">----</option>
-                        {FORMATIONS.map(formation=>
-                        <option value={formation}>{formation}</option>    
+                        {FORMATIONS.map(formation =>
+                            <option value={formation}>{formation}</option>
                         )}
                     </select>
                 </Css.InfoHeader>
@@ -50,12 +60,12 @@ const LineupInfo: React.FC = () => {
 
                     {teamPlayers.map(player =>
                         <Css.PlayerItem position={getPositionColor(player.position)} key={player.id}>
-                            <select onChange={(e)=>changePlayerPosition(player.id,e.target.value)}>
+                            <select onChange={(e) => changePlayerPosition(player.id, e.target.value)}>
                                 <option value="">--</option>
                                 {POSITIONS.reverse().map(position =>
                                     <Css.OptionPosition
                                         position={getPositionColor(position)}
-                                        selected={position===player.position}
+                                        selected={position === player.position}
                                         value={position}>
                                         {position}
                                     </Css.OptionPosition>
