@@ -11,6 +11,7 @@ export const theme = {
     striker:'#BD1106',
     btn_attack:'#4AE812',
     btn_defender:'#FF6B35',
-    bar:'#939393'
+    bar:'#939393',
+    btn_dark:'#0C0e18'
 }
 export type ThemeType = typeof theme; 

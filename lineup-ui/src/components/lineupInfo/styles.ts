@@ -31,7 +31,7 @@ export const InfoHeader = styled.div`
         box-shadow: ${p=>p.theme.box_shadow};
     }
     input{
-        font-size: 35px;
+        font-size: 28px;
         padding: 0px 5px;
         color: white;
         margin-top: 10px;
@@ -113,7 +113,5 @@ export const BtnAdd = styled.button`
     align-items: center;
     justify-content: center;
     box-shadow: ${p=>p.theme.box_shadow};
-    /* border-radius: 10px; */
     color: ${p=>p.theme.text};
-    margin-left: 5px;
 `;

@@ -24,12 +24,15 @@ export const LineupMain = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  gap: 75px;
+  
   margin: 50px auto;
   article{
     display: flex;
     flex-direction: column;
     gap: 25px;
+  }
+  article:nth-child(2){
+    margin-left: 75px;
   }
 `;
 
@@ -51,4 +54,17 @@ export const ButtonsBox = styled.div`
     color: ${p=>p.theme.bar};
     font-weight: 600;
   }
+`;
+
+export const ButtonInfoPositions = styled.button`
+  margin-left: 10px;
+  background: ${p=>p.theme.btn_dark};
+  padding: 5px 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  color: ${p=>p.theme.text};
+  cursor: pointer;
+  border:0;
+  box-shadow: ${p=>p.theme.box_shadow};
 `;

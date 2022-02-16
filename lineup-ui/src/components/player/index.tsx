@@ -25,6 +25,4 @@ function Player({ name }: PlayerProps) {
   );
 }
 
-export default memo(Player,(prevProps, nextProps) => {
-  return Object.is(prevProps.key, nextProps.key)
-});
+export default Player;

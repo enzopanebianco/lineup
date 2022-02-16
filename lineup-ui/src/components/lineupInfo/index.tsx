@@ -37,6 +37,7 @@ const LineupInfo: React.FC = () => {
         const indexPlayer = teamPlayers.findIndex(player => player.id === id);
         if (indexPlayer > -1) {
             teamPlayers[indexPlayer].name = newName
+            console.log(teamPlayers)
             setTeamPlayers([
                 ...teamPlayers,
             ])

@@ -8,11 +8,14 @@ import attackSVG from '../../assets/images/attack.svg'
 import defenderSVG from '../../assets/images/defender.svg'
 import * as Css from './styles';
 import FieldOptions from '../../components/fieldOptions';
-import Player from '../../components/player';
+import {BsThreeDotsVertical} from 'react-icons/bs'
 
 function LineupDetails() {
     const [change,setChange] = useState(false);
 
+
+  
+    
 
     return (
         <>
@@ -46,6 +49,11 @@ function LineupDetails() {
                             <Css.LineupBox padding='15px 20px' >
                                 <FieldOptions />
                             </Css.LineupBox>
+                        </article>
+                        <article>
+                            <Css.ButtonInfoPositions >
+                                <BsThreeDotsVertical size={20}/>
+                            </Css.ButtonInfoPositions>
                         </article>
                     </Css.LineupMain>
                 </section>
