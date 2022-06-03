@@ -1,8 +1,9 @@
 import React, { memo, useCallback } from 'react';
 import { FORMATIONS } from '../../constants/formations';
-import { POSITION_COLORS, Position, POSITIONS } from '../../constants/positions';
+import { POSITION_COLORS, POSITIONS } from '../../constants/positions';
+import { Position } from '../../@types/positions';
 import { useField } from '../../contexts/FieldContext';
-import {MdAdd} from 'react-icons/md'
+import { MdAdd } from 'react-icons/md'
 import * as Css from './styles';
 
 const LineupInfo: React.FC = () => {
@@ -17,15 +18,15 @@ const LineupInfo: React.FC = () => {
         const indexPlayer = teamPlayers.findIndex(player => player.id === id);
         if (newPosition === 'GOL') {
             const hasKeeper = teamPlayers.findIndex(player => player.position === 'GOL')
-          
-            if (hasKeeper === -1){                
+
+            if (hasKeeper === -1) {
                 teamPlayers[indexPlayer].position = newPosition
                 setTeamPlayers([
                     ...teamPlayers,
                 ])
             }
         }
-        else{
+        else {
             teamPlayers[indexPlayer].position = newPosition
             setTeamPlayers([
                 ...teamPlayers,
@@ -34,33 +35,38 @@ const LineupInfo: React.FC = () => {
     }
 
     const changePlayerName = useCallback((id: number, newName: string) => {
-        const indexPlayer = teamPlayers.findIndex(player => player.id === id);
-        if (indexPlayer > -1) {
-            teamPlayers[indexPlayer].name = newName
-            console.log(teamPlayers)
-            setTeamPlayers([
-                ...teamPlayers,
-            ])
+        if (teamPlayers) {
+            const indexPlayer = teamPlayers?.findIndex(player => player.id === id);
+            if (indexPlayer > -1) {
+                teamPlayers[indexPlayer].name = newName
+                console.log(teamPlayers)
+                setTeamPlayers([
+                    ...teamPlayers,
+                ])
+            }
         }
     }, [teamPlayers])
 
-    const addPlayer = useCallback(()=>{
-        setTeamPlayers([...teamPlayers,{
-            name:'',
-            position:'ATA',
-            id:Math.random()
+    const addPlayer = useCallback(() => {
+
+        setTeamPlayers([...teamPlayers, {
+            name: '',
+            position: 'ATA',
+            id: Math.random(),
+            x: 0,
+            y: 0
         }])
-    },[teamPlayers])
+    }, [teamPlayers])
 
     return (
         <>
             <Css.Container>
                 <Css.InfoHeader>
-                    <input type="text" />
+                    <input type="text" placeholder='Título' />
                     <select>
                         <option value="">----</option>
                         {FORMATIONS.map(formation =>
-                            <option value={formation}>{formation}</option>
+                            <option key={formation} value={formation}>{formation}</option>
                         )}
                     </select>
                 </Css.InfoHeader>
@@ -73,8 +79,10 @@ const LineupInfo: React.FC = () => {
                                 {POSITIONS.reverse().map(position =>
                                     <Css.OptionPosition
                                         position={getPositionColor(position)}
-                                        selected={position === player.position}
+                                        key={position}
+                                        defaultValue={position}
                                         value={position}>
+
                                         {position}
                                     </Css.OptionPosition>
                                 )}
@@ -91,10 +99,10 @@ const LineupInfo: React.FC = () => {
                         </Css.PlayerItem>
                     )}
                     {
-                        teamPlayers.length<11&&
+                        teamPlayers.length < 11 &&
                         <Css.BtnAdd onClick={addPlayer}>
                             Add
-                            <MdAdd size={20}/>
+                            <MdAdd size={20} />
                         </Css.BtnAdd>
                     }
                 </Css.PlayersInfo>

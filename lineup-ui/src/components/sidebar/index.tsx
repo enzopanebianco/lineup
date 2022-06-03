@@ -1,15 +1,23 @@
-import React from 'react';
-import { Container } from './styles';
+import { Container, Image } from './styles';
 import clipboardSVG from '../../assets/images/clipboard.svg';
 import bootsSVG from '../../assets/images/boots.svg';
 import fieldSVG from '../../assets/images/field.svg';
-function Sidebar(){
-  return(
+import { Link } from 'react-router-dom';
+
+function Sidebar() {
+
+  const currentComponent = document.location.pathname;
+
+  return (
     <>
       <Container>
-        <img src={fieldSVG} alt="prancheta" />
-        <img src={clipboardSVG} alt="prancheta" />
-        <img src={bootsSVG} alt="prancheta" />
+        <Link to="/field">
+          <Image src={fieldSVG} alt="campo" bright={currentComponent === '/field'} />
+        </Link>
+        <Link to="/">
+        <Image src={clipboardSVG} alt="prancheta" bright={currentComponent === '/'} />
+        </Link>
+        <Image src={bootsSVG} alt="chuteira" bright={currentComponent === '/test'} />
 
       </Container>
     </>

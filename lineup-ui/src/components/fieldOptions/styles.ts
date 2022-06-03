@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 15px;
   color: ${p=>p.theme.text_disabled};
   div{
       display: flex;
-      gap: 10px;
+      gap: 5px;
       align-items: center;
   }
   input[type="color"]{
@@ -25,5 +26,15 @@ export const Container = styled.div`
         border:1px solid white
     }
   }
-  
+  input[type="text"]{
+    background: transparent;
+    border: 0;
+    outline:none;
+    /* font-size: 15px; */
+    color:white;
+    border-bottom:1px solid ${p=>p.theme.text_disabled};
+    :focus{
+      border-bottom:1px solid ${p=>p.theme.text}
+    }
+  }
 `;

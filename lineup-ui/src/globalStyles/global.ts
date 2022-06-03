@@ -8,7 +8,7 @@ body{
     box-sizing:border-box;
   
 }
-input,body,button,p,select{
+input,body,button,p,select,textarea{
     font-family:'Poppins',sans-serif;
 }
 

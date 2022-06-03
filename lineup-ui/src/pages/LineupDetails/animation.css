@@ -1,0 +1,22 @@
+.animateExpandField{
+    width:800px;
+    animation-name: animate;
+    animation-duration: 0.5s;
+}
+@keyframes animate{
+    0%{
+        width:initial;
+    }
+    25%{
+        width:200px;
+    }
+    50%{
+        width:400px;
+    }
+    75%{
+        width: 600px;
+    }
+    100%{
+        width: 900px;
+    }
+}

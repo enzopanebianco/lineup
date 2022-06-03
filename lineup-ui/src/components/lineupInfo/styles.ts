@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PositionProps } from '../../constants/positions';
+import { PositionProps } from '../../@types/positions';
 
 
 
@@ -31,9 +31,10 @@ export const InfoHeader = styled.div`
         box-shadow: ${p=>p.theme.box_shadow};
     }
     input{
-        font-size: 28px;
+        font-size: 25px;
         padding: 0px 5px;
         color: white;
+        width: 100%;
         margin-top: 10px;
         border-radius:10px;
         background: transparent;
@@ -44,7 +45,7 @@ export const InfoHeader = styled.div`
 `;
 export const PlayersInfo = styled.div`
     display: grid;
-    grid-template-columns:repeat(3,180px);
+    grid-template-columns:repeat(3,200px);
     grid-template-rows:repeat(4,35px);
     grid-gap: 5px;
 `;

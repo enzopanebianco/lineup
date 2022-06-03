@@ -1,13 +1,12 @@
 import React from 'react';
-import LineupDetails from './pages/LineupDetails';
 import './globalStyles/font.css'
 import { FieldContextProvider } from './contexts/FieldContext';
-
+import Routes from './routes';
 function App() {
   return (
     <>
       <FieldContextProvider>
-        <LineupDetails />
+       <Routes />
       </FieldContextProvider>
     </>
   );

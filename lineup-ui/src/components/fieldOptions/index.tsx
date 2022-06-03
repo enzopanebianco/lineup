@@ -1,27 +1,37 @@
-import React from 'react';
+
 import { useField } from '../../contexts/FieldContext';
-import { Container } from './styles';
+import * as Css from './styles';
 
 function FieldOptions() {
-  const {setTeamColors,teamColors} = useField();
+  const { setTeamColors, teamColors } = useField();
   return (
     <>
-      <Container>
+      <Css.Container>
+
         <div>
           <label>Primária</label>
-          <input 
-            onChange={(e)=>
-              setTeamColors({primaryColor:e.target.value,
-              secundaryColor:teamColors.secundaryColor})}
-          type="color" />
+          <input
+            onChange={(e) =>
+              setTeamColors({
+                primaryColor: e.target.value,
+                secundaryColor: teamColors.secundaryColor
+              })}
+            type="color" />
         </div>
         <div>
           <label htmlFor="">Secundária</label>
-          <input type="color" onChange={(e)=>
-              setTeamColors({secundaryColor:e.target.value,
-              primaryColor:teamColors.primaryColor})} />
+          <input type="color" onChange={(e) =>
+            setTeamColors({
+              secundaryColor: e.target.value,
+              primaryColor: teamColors.primaryColor
+            })} />
         </div>
-      </Container>
+        <div>
+          <p>Time</p>
+          <input type="text" />
+        </div>
+
+      </Css.Container>
     </>
   );
 }

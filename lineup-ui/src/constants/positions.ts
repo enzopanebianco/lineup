@@ -1,3 +1,5 @@
+import { Position } from "../@types/positions"
+
 const POSITION_COLORS = {
     'PE': 'striker',
     'ATA': 'striker',
@@ -32,22 +34,5 @@ const POSITIONS:Position[] = [
 ]
 
 
-export type Position =
-    'PE' |
-    'ATA' |
-    'PD' |
-    'SA' |
-    'MEI' |
-    'MC' |
-    'VOL' |
-    'LD' |
-    'ZAG' |
-    'LE' |
-    'ADE' |
-    'ADD' |
-    'GOL'
 
-export type PositionProps = {
-    position: 'goalkeeper' | 'defender' | 'midfielder' | 'striker'
-}
 export { POSITION_COLORS,POSITIONS }
